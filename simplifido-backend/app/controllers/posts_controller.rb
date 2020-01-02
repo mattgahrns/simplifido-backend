@@ -10,6 +10,11 @@ class PostsController < ApplicationController
         end
     end
 
+    def index
+        posts = Post.all
+        render json: posts, include: [:user]
+    end
+
     private
     def post_params
         params.require(:post).permit(:title, :activity, :description, :when)
