@@ -1,5 +1,4 @@
 class DogsController < ApplicationController
-    skip_before_action :authorized, only: [:create]
 
     def create
         dog = Dog.new(dog_params)

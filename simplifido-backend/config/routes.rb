@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   get '/current_user', to: 'auth#show'
   post '/users/:id/dog/new', to: 'dogs#create'
+  post '/users/:id/dogs', to: 'users#dogs'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -17,7 +17,9 @@ class UsersController < ApplicationController
     end
 
     def dogs
-
+        @user = User.find(params[:id])
+        @dogs = Dog.where("user_id = ?", @user.id)
+        render json: {dogs: @dogs}
     end
 
     private
