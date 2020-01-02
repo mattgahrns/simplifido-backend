@@ -10,8 +10,6 @@ class ApplicationController < ActionController::API
     end
 
     def decoded_token
-        puts "XXXXXXXXX"
-        puts request.headers
 
         if auth_header
             token = auth_header.split(' ')[1]
