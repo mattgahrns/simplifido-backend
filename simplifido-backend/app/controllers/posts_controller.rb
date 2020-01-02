@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+    skip_before_action :authorized, only: [:index]
     def create
         post = Post.new(post_params)
         user = User.find_by(id: params[:id])
