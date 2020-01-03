@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/current_user', to: 'auth#show'
   post '/users/:id/dog/new', to: 'dogs#create'
   get '/users/:id/dogs', to: 'users#dogs'
-  post 'users/:id/post/new', to: 'posts#create'
+  post '/users/:id/post/new', to: 'posts#create'
+  get '/users/:id/posts', to: 'users#posts'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

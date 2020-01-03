@@ -22,6 +22,12 @@ class UsersController < ApplicationController
         render json: {dogs: @dogs}
     end
 
+    def posts
+        @user = User.find(params[:id])
+        @posts = Post.where("user_id = ?", @user.id)
+        render json: {posts: @posts}
+    end
+
     private
     def user_params
         params.require(:user).permit(:username, :password, :email, :city, :state, :img_url)
