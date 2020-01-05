@@ -16,6 +16,25 @@ class PostsController < ApplicationController
         render json: posts, include: [:user]
     end
 
+    def show
+        post = Post.find_by(id: params[:id])
+        render json: post, include: [:user]
+    end
+
+    def update
+        post = Post.find_by(id: params[:id])
+        if post.update(post_params)
+            render json: { message: 'Post updated!' }
+        else
+            render json: { message: 'Post could not be edited. Please try again.' }
+        end
+    end
+
+    def destroy
+        post = Post.find_by(id: params[:id])
+        post.destroy
+    end
+
     private
     def post_params
         params.require(:post).permit(:title, :activity, :description, :when)

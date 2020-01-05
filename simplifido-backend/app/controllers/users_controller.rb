@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     def posts
         @user = User.find(params[:id])
         @posts = Post.where("user_id = ?", @user.id)
-        render json: {posts: @posts}
+        render json: @posts, include: [:user]
     end
 
     private
