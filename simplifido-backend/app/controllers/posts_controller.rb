@@ -16,6 +16,11 @@ class PostsController < ApplicationController
         render json: posts, include: [:user]
     end
 
+    def show
+        post = Post.find_by(id: params[:id])
+        render json: post, include: [:user]
+    end
+
     def update
         post = Post.find_by(id: params[:id])
         if post.update(post_params)
